@@ -10,10 +10,10 @@ class Main {
 	static ArrayList<Character> stations=new ArrayList<Character>(); //stores all stations
 	static ArrayList<ArrayList<String>> passengers = new ArrayList<>();
 	static int pod_src; //starting station
-	static ArrayList<ArrayList<Integer>> adj = new ArrayList<>();
+	static ArrayList<ArrayList<Integer>> adj = new ArrayList<>(); // to create graph for the routes
 	
 
-    public static void write_file(String msg1,String[] msg2,String msg3){
+    public static void write_file(String msg1,String[] msg2,String msg3){ // function to write data to data.txt
 	try {
 	String filename= "Data.txt";
 	FileWriter fw = new FileWriter(filename,true); 
@@ -38,7 +38,7 @@ class Main {
       		System.out.println("An error occurred.");
       		e.printStackTrace();}
 }    
-    public static void cmdcheck(String cmd[]){
+    public static void cmdcheck(String cmd[]){ // Check and perform the commands pf HPB
         
             int pc=0;//passenger count
             
@@ -72,9 +72,9 @@ class Main {
                     }
                     }
                     
-                int des=stations.indexOf(passengers.get(ind).get(2).charAt(0));
+                int des=stations.indexOf(passengers.get(ind).get(2).charAt(0)); // get passenger's destination
                 System.out.print(passengers.get(ind).get(0)+" ");
-                pat[c]=(passengers.get(ind).get(0))+" travelled "+print_paths(adj,stations.size(),pod_src,des);
+                pat[c]=(passengers.get(ind).get(0))+" travelled "+print_paths(adj,stations.size(),pod_src,des); //store route of passenger and send to data.txt
                 passengers.remove(ind);
                 limit--;    
 	c++;
@@ -83,7 +83,7 @@ class Main {
 	write_file("Pod Started",pat,"Remaining Passengers in Queue");
             }    
             else{
-            System.out.println("Only "+passengers.size()+" passengers are in queue now");
+            System.out.println("Only "+passengers.size()+" passengers are in queue now"); // message -if given passenger count > existing passenger count
             System.out.println("Please enter ample passenger count ");}
                 
             }
@@ -94,10 +94,10 @@ class Main {
                 System.out.println(passengers.get(i).get(0)+" "+passengers.get(i).get(1));
                 }
                 else
-                System.out.println("No passengers currently in queue!!!");
+                System.out.println("No passengers currently in queue!!!"); //if queue is empty
             }
             else
-            System.out.println("No such command!!");
+            System.out.println("No such command!!"); // if wrong command is eetered
         }
     
 	//function to add route between 2 stations
@@ -129,19 +129,19 @@ class Main {
 		}
 	}
 
-	// Function to performs bfs from given station
+	// Function to performs bfs from given station -> to find minimum path from sorce station
 	static void bfs(ArrayList<ArrayList<Integer>> adj, ArrayList<ArrayList<Integer>> parent,
 			int n, int start) {
 	
 		// dist will contain shortest distance
-		// from start to every other vertex
+		// from start to every other station
 		int[] dist = new int[n];
 		Arrays.fill(dist, Integer.MAX_VALUE);
 
 		Queue<Integer> q = new LinkedList<>();
 
-		// Insert source vertex in queue and make
-		// its parent -1 and distance 0
+		// Insert source station in queue and make
+		
 		q.offer(start);
 		
 		parent.get(start).clear();
@@ -194,7 +194,7 @@ class Main {
 			// so reverse it
 			Collections.reverse(v);
 
-			// Print node for the current path
+			// Print station for the current route
 			
 			for (int u : v){
 				System.out.print(stations.get(u) + " ");
@@ -210,7 +210,7 @@ class Main {
     
     public static void main (String[] args) //Main
 	{
-	Date date = new Date(); // for writing in text file
+	Date date = new Date(); // for writing date for new entry in text file
 
 	int n; // no. of routes    
     Scanner inp = new Scanner(System.in);	    
@@ -243,7 +243,7 @@ class Main {
         }
         
         int station_count=stations.size();
-        for(int i = 0; i <station_count; i++){// creating stations 2d ArrayList
+        for(int i = 0; i <station_count; i++){// creating unique stations as 2d ArrayList
 		    adj.add(new ArrayList<>());
         }
         	
