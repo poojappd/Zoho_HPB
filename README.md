@@ -1,1 +1,6 @@
-# Zoho_Mycode
+# Hyperloop Passenger Booking
+>Pooja Priyadarshni.P.S, (poojapriyadarshnips@gmail.com)
+
+### The program can run in cmd
+- The program is written in java
+- The program writes all the data to the file ** __ data.txt __ **
