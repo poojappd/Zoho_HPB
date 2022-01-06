@@ -3,4 +3,4 @@
 
 ### The program can run in cmd
 - The program is written in java
-- The program writes all the data to the file ** __ data.txt __ **
+- The program writes all the data to the file **__data.txt__**
