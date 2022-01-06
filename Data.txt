@@ -1,0 +1,30 @@
+--------------------Thu Jan 06 21:33:46 IST 2022--------------------
+
+--------------------Passenger Added--------------------
+
+
+Passengers in queue: 
+1. [HAR, 22, C]
+2. [FSS, 33, D]
+3. [FUDB, 70, B]
+
+
+
+--------------------Pod Started--------------------
+
+FUDB travelled A B  
+FSS travelled A D  
+
+Remaining Passengers in Queue 
+1. [HAR, 22, C]
+
+
+
+--------------------Pod Started--------------------
+
+HAR travelled A B C  
+
+Remaining Passengers in Queue 
+--->  0
+
+
